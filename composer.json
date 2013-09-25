@@ -13,7 +13,6 @@
         "php": ">=5.3.0",
         "illuminate/config": "4.0.x",
         "illuminate/queue": "4.0.x",
-        "chrisboulton/php-resque": "1.2.x",
         "chrisboulton/php-resque-scheduler": "dev-master"
     },
     "autoload": {

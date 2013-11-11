@@ -3,6 +3,7 @@
 use Resque;
 use ResqueScheduler;
 use Resque_Event;
+use Resque_Job_status;
 use Illuminate\Queue\Queue;
 
 /**
@@ -102,6 +103,50 @@ class ResqueQueue extends Queue {
 	{
 		$status = new Resque_Job_status($token);
 		return $status->get();
+	}
+
+	/**
+	 * Returns true if the job is in waiting state.
+	 *
+	 * @return bool
+	 */
+	public function isWaiting($token)
+	{
+		$status = $this->jobStatus($token);
+		return $status === Resque_Job_status::STATUS_WAITING;
+	}
+
+	/**
+	 * Returns true if the job is in running state.
+	 *
+	 * @return bool
+	 */
+	public function isRunning($token)
+	{
+		$status = $this->jobStatus($token);
+		return $status === Resque_Job_status::STATUS_RUNNING;
+	}
+
+	/**
+	 * Returns true if the job is in failed state.
+	 *
+	 * @return bool
+	 */
+	public function isFailed($token)
+	{
+		$status = $this->jobStatus($token);
+		return $status === Resque_Job_status::STATUS_FAILED;
+	}
+
+	/**
+	 * Returns true if the job is in complete state.
+	 *
+	 * @return bool
+	 */
+	public function isComplete($token)
+	{
+		$status = $this->jobStatus($token);
+		return $status === Resque_Job_status::STATUS_COMPLETE;
 	}
 
 	/**

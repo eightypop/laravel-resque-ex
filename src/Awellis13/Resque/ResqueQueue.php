@@ -3,7 +3,7 @@
 use Resque;
 use ResqueScheduler;
 use Resque_Event;
-use Resque_Job_status;
+use Resque_Job_Status;
 use Illuminate\Queue\Queue;
 
 /**

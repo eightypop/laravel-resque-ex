@@ -1,3 +1,7 @@
+### 1.0.7
+
+- Fixed casing bug in ResqueQueue.
+
 ### 1.0.6
 
 - Fixed getStats()

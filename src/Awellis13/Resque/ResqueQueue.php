@@ -101,7 +101,7 @@ class ResqueQueue extends Queue {
 	 */
 	public function jobStatus($token)
 	{
-		$status = new Resque_Job_status($token);
+		$status = new Resque_Job_Status($token);
 		return $status->get();
 	}
 
@@ -113,7 +113,7 @@ class ResqueQueue extends Queue {
 	public function isWaiting($token)
 	{
 		$status = $this->jobStatus($token);
-		return $status === Resque_Job_status::STATUS_WAITING;
+		return $status === Resque_Job_Status::STATUS_WAITING;
 	}
 
 	/**
@@ -124,7 +124,7 @@ class ResqueQueue extends Queue {
 	public function isRunning($token)
 	{
 		$status = $this->jobStatus($token);
-		return $status === Resque_Job_status::STATUS_RUNNING;
+		return $status === Resque_Job_Status::STATUS_RUNNING;
 	}
 
 	/**
@@ -135,7 +135,7 @@ class ResqueQueue extends Queue {
 	public function isFailed($token)
 	{
 		$status = $this->jobStatus($token);
-		return $status === Resque_Job_status::STATUS_FAILED;
+		return $status === Resque_Job_Status::STATUS_FAILED;
 	}
 
 	/**
@@ -146,7 +146,7 @@ class ResqueQueue extends Queue {
 	public function isComplete($token)
 	{
 		$status = $this->jobStatus($token);
-		return $status === Resque_Job_status::STATUS_COMPLETE;
+		return $status === Resque_Job_Status::STATUS_COMPLETE;
 	}
 
 	/**

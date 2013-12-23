@@ -7,7 +7,7 @@ use Illuminate\Queue\QueueServiceProvider;
 /**
  * Class ResqueServiceProvider
  *
- * @package Queue
+ * @package Resque\ServiceProviders
  */
 class ResqueServiceProvider extends QueueServiceProvider {
 

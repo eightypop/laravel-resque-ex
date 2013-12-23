@@ -1,3 +1,7 @@
+### 1.1.0
+
+- Laravel 4.1 support.
+
 ### 1.0.7
 
 - Fixed casing bug in ResqueQueue.

@@ -9,7 +9,7 @@ use Illuminate\Queue\Queue;
 /**
  * Class ResqueQueue
  *
- * @package Queue
+ * @package Resque
  */
 class ResqueQueue extends Queue {
 
@@ -46,6 +46,7 @@ class ResqueQueue extends Queue {
 	public function push($job, $data = [], $queue = null, $track = false)
 	{
 		$queue = (is_null($queue) ? $job : $queue);
+
 		return Resque::enqueue($queue, $job, $data, $track);
 	}
 
@@ -97,55 +98,65 @@ class ResqueQueue extends Queue {
 	/**
 	 * Returns the job's status.
 	 *
+	 * @param  string  $token
 	 * @return int
 	 */
 	public function jobStatus($token)
 	{
 		$status = new Resque_Job_Status($token);
+
 		return $status->get();
 	}
 
 	/**
 	 * Returns true if the job is in waiting state.
 	 *
+	 * @param  string  $token
 	 * @return bool
 	 */
 	public function isWaiting($token)
 	{
 		$status = $this->jobStatus($token);
+
 		return $status === Resque_Job_Status::STATUS_WAITING;
 	}
 
 	/**
 	 * Returns true if the job is in running state.
 	 *
+	 * @param  string  $token
 	 * @return bool
 	 */
 	public function isRunning($token)
 	{
 		$status = $this->jobStatus($token);
+
 		return $status === Resque_Job_Status::STATUS_RUNNING;
 	}
 
 	/**
 	 * Returns true if the job is in failed state.
 	 *
+	 * @param  string  $token
 	 * @return bool
 	 */
 	public function isFailed($token)
 	{
 		$status = $this->jobStatus($token);
+
 		return $status === Resque_Job_Status::STATUS_FAILED;
 	}
 
 	/**
 	 * Returns true if the job is in complete state.
 	 *
+	 * @param  string  $token
 	 * @return bool
 	 */
 	public function isComplete($token)
 	{
 		$status = $this->jobStatus($token);
+
 		return $status === Resque_Job_Status::STATUS_COMPLETE;
 	}
 

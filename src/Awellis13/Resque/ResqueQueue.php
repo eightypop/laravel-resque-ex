@@ -9,7 +9,7 @@ use Illuminate\Queue\Queue;
 /**
  * Class ResqueQueue
  *
- * @package Queue
+ * @package Resque
  */
 class ResqueQueue extends Queue {
 

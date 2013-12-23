@@ -9,7 +9,7 @@ use Illuminate\Queue\Connectors\ConnectorInterface;
 /**
  * Class ResqueConnector
  *
- * @package Queue\Connectors
+ * @package Resque\Connectors
  */
 class ResqueConnector implements ConnectorInterface {
 

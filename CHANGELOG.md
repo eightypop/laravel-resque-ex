@@ -1,3 +1,7 @@
+### 1.1.1
+
+- No longer requiring chrisboulton/php-resque-scheduler, rather suggesting it.
+
 ### 1.1.0
 
 - Laravel 4.1 support.

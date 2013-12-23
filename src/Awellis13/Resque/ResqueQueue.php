@@ -61,6 +61,11 @@ class ResqueQueue extends Queue {
 	 */
 	public function later($delay, $job, $data = [], $queue = null)
 	{
+		if (!class_exists('ResqueScheduler'))
+		{
+			throw new Exception("Please add \"chrisboulton/php-resque-scheduler\": \"dev-master\" to your composer.json and run composer update");
+		}
+
 		$queue = (is_null($queue) ? $job : $queue);
 
 		if (is_int($delay))

@@ -1,5 +1,6 @@
 {
     "name": "awellis13/laravel-resque",
+    "version": "1.0.7-p1",
     "description": "Laravel Resque connector for Queue.",
     "keywords": ["laravel", "resque", "queue"],
     "license": "MIT",
@@ -11,6 +12,7 @@
     ],
     "require": {
         "php": ">=5.3.0",
+
         "illuminate/config": "4.1.x",
         "illuminate/queue": "4.1.x",
         "chrisboulton/php-resque-scheduler": "dev-master"

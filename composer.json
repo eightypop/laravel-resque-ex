@@ -11,8 +11,8 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "illuminate/config": "4.0.x",
-        "illuminate/queue": "4.0.x",
+        "illuminate/config": "4.1.x",
+        "illuminate/queue": "4.1.x",
         "chrisboulton/php-resque-scheduler": "dev-master"
     },
     "autoload": {

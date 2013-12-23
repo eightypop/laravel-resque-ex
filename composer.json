@@ -1,26 +1,28 @@
 {
-    "name": "awellis13/laravel-resque",
-    "version": "1.1.0",
-    "description": "Laravel Resque connector for Queue.",
-    "keywords": ["laravel", "resque", "queue"],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Andrew Ellis",
-            "email": "awellis@me.com"
-        }
-    ],
-    "require": {
-        "php": ">=5.3.0",
+	"name": "awellis13/laravel-resque",
+	"version": "1.1.0",
+	"description": "Laravel Resque connector for Queue.",
+	"keywords": ["laravel", "resque", "queue"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Andrew Ellis",
+			"email": "awellis@me.com"
+		}
+	],
+	"require": {
+		"php": ">=5.3.0",
 
-        "illuminate/config": "4.1.x",
-        "illuminate/queue": "4.1.x",
-        "chrisboulton/php-resque-scheduler": "dev-master"
-    },
-    "autoload": {
-        "psr-0": {
-            "Awellis13\\Resque": "src/"
-        }
-    },
-    "minimum-stability": "dev"
+		"illuminate/config": "4.1.x",
+		"illuminate/queue": "4.1.x"
+	},
+	"suggest": {
+		"chrisboulton/php-resque-scheduler": "Enables the use of the ResqueScheduler functionality."
+	},
+	"autoload": {
+		"psr-0": {
+			"Awellis13\\Resque": "src/"
+		}
+	},
+	"minimum-stability": "dev"
 }

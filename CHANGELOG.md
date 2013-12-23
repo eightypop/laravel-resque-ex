@@ -1,3 +1,8 @@
+### 1.1.1
+
+- No longer requiring chrisboulton/php-resque-scheduler, rather suggesting it.
+- Added the resque:listen Artisan command.
+
 ### 1.1.0
 
 - Laravel 4.1 support.

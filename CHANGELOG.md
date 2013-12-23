@@ -1,3 +1,9 @@
+### 1.1.2
+
+- Fixed dependency error.
+- Updated README documentation.
+- Bumped PHP requirement to 5.4.
+
 ### 1.1.1
 
 - No longer requiring chrisboulton/php-resque-scheduler, rather suggesting it.

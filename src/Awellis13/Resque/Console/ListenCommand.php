@@ -72,10 +72,10 @@ class ListenCommand extends Command {
 	 */
 	protected function getOptions()
 	{
-		return array(
-			array('queue', NULL, InputOption::VALUE_OPTIONAL, 'The queue to listen on', 'default'),
-			array('interval', NULL, InputOption::VALUE_OPTIONAL, 'Amount of time to delay failed jobs', 5),
-		);
+		return [
+			['queue', NULL, InputOption::VALUE_OPTIONAL, 'The queue to listen on', 'default'],
+			['interval', NULL, InputOption::VALUE_OPTIONAL, 'Amount of time to delay failed jobs', 5],
+		];
 	}
 
 } // End ListenCommand

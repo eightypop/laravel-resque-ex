@@ -24,14 +24,14 @@ class ResqueQueue extends Queue {
 	{
 		if (method_exists('Resque', $method))
 		{
-			return call_user_func_array(array('Resque', $method), $parameters);
+			return call_user_func_array(['Resque', $method], $parameters);
 		}
 		else if (method_exists('ResqueScheduler', $method))
 		{
-			return call_user_func_array(array('RescueScheduler', $method), $parameters);
+			return call_user_func_array(['RescueScheduler', $method], $parameters);
 		}
 
-		return call_user_func_array(array('Queue', $method), $parameters);
+		return call_user_func_array(['Queue', $method], $parameters);
 	}
 
 	/**

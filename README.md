@@ -4,18 +4,18 @@ This package allows you to connect to Resque when using `Queue`.
 
 ## Requirements
 
-- PHP 5.3+
-- Illuminate\Config 4.0+
-- Illuminate\Queue 4.0+
-- Resque 1.2+
-- ResqueScheduler 1.1+
+- PHP 5.4+
+- Illuminate\Config 4.1+
+- Illuminate\Queue 4.1+
+- Resque 1.2
+- ResqueScheduler 1.1 (Optional)
 
 ## Installation
 
 First you need to add the following to your project's `composer.json`:
 
     "require": {
-    	"awellis13/laravel-resque": "1.x"
+    	"awellis13/laravel-resque": "1.1.x"
     }
 
 Now you need to run the following to install the package:
@@ -28,9 +28,9 @@ Next you need to add the following service provider to your `app/config/app.php`
 
 Now you need to add the following to your `/app/config/queue.php` "connections" section:
 
-    "resque" => array(
+    "resque" => [
     	"driver" => "resque"
-    )
+    ]
 
 If you wish to use this driver as your default Queue driver you will need to set the following as your "default" drive in `app/config/queue.php`:
 
@@ -41,21 +41,21 @@ If you wish to use this driver as your default Queue driver you will need to set
 
 If you choose to not use this driver as your default Queue driver you can call a Queue method on demand by doing:
 
-    Queue::connection('resque')->push('JobName', array('name' => 'Andrew'));
+    Queue::connection('resque')->push('JobName', ['name' => 'Andrew']);
 
 ### Enqueing a Job
 
-	Queue::push('JobName', array('name' => 'Andrew'));
+	Queue::push('JobName', ['name' => 'Andrew']);
 
 ### Tracking a Job
 
-	$token = Queue::push('JobName', array('name' => 'Andrew'), true);
+	$token = Queue::push('JobName', ['name' => 'Andrew'], true);
 	$status = Queue::getStatus($token);
 
 ### Enqueing a Future Job
 
 	$when = time() + 3600; // 1 hour from now
-	Queue::later($when, 'JobName', array('name' => 'Andrew'));
+	Queue::later($when, 'JobName', ['name' => 'Andrew']);
 
 ## Further Documentation
 

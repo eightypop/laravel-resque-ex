@@ -1,3 +1,8 @@
+### 1.2.0
+
+- Feature: pushIfNotExists() added.
+- Changed: PHP 5.5.x required.
+
 ### 1.1.2
 
 - Fixed dependency error.

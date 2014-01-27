@@ -16,7 +16,7 @@ class ResqueConnector implements ConnectorInterface {
 	/**
 	 * Establish a queue connection.
 	 *
-	 * @param  array  $config
+	 * @param array $config
 	 * @return \Illuminate\Queue\QueueInterface
 	 */
 	public function connect(array $config)
@@ -32,6 +32,7 @@ class ResqueConnector implements ConnectorInterface {
 		}
 
 		Resque::setBackend($config['host'].':'.$config['port']);
+
 		return new ResqueQueue;
 	}
 

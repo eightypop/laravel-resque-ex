@@ -48,7 +48,7 @@ class ListenCommand extends Command {
 	{
 		// Read input
 		$logLevel = $this->input->getOption('verbose') ? true : false;
-		$queue    = $this->input->getOption('queue');
+		$queue = $this->input->getOption('queue');
 		$interval = $this->input->getOption('interval');
 
 		// Connect to redis

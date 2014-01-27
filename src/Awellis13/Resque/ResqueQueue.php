@@ -1,5 +1,6 @@
 <?php namespace Awellis13\Resque;
 
+use Exception;
 use Resque;
 use ResqueScheduler;
 use Resque_Event;
@@ -37,13 +38,13 @@ class ResqueQueue extends Queue {
 	/**
 	 * Push a new job onto the queue.
 	 *
-	 * @param  string  $job
-	 * @param  array   $data
-	 * @param  string  $queue
-	 * @param  bool    $track
+	 * @param string $job
+	 * @param array  $data
+	 * @param string $queue
+	 * @param bool   $track
 	 * @return string
 	 */
-	public function push($job, $data = [], $queue = null, $track = false)
+	public function push($job, $data = [], $queue = NULL, $track = false)
 	{
 		$queue = (is_null($queue) ? $job : $queue);
 
@@ -51,15 +52,36 @@ class ResqueQueue extends Queue {
 	}
 
 	/**
+	 * Push the job onto the queue only if the previous one does not exist, is completed, or failed.
+	 *
+	 * @param string $token
+	 * @param string $job
+	 * @param array  $data
+	 * @param null   $queue
+	 * @param bool   $track
+	 * @return bool|string
+	 */
+	public function pushIfNotExists($token, $job, $data = [], $queue = NULL, $track = false)
+	{
+		if (!$this->jobStatus($token) or $this->isComplete($token) or $this->isFailed($token))
+		{
+			return $this->push($job, $data, $queue, $track);
+		}
+
+		return false;
+	}
+
+	/**
 	 * Push a new job onto the queue after a delay.
 	 *
-	 * @param  int     $delay
-	 * @param  string  $job
-	 * @param  mixed   $data
-	 * @param  string  $queue
+	 * @param int    $delay
+	 * @param string $job
+	 * @param mixed  $data
+	 * @param string $queue
 	 * @return void
+	 * @throws Exception
 	 */
-	public function later($delay, $job, $data = [], $queue = null)
+	public function later($delay, $job, $data = [], $queue = NULL)
 	{
 		if (!class_exists('ResqueScheduler'))
 		{
@@ -81,10 +103,10 @@ class ResqueQueue extends Queue {
 	/**
 	 * Pop the next job off of the queue.
 	 *
-	 * @param  string  $queue
+	 * @param string $queue
 	 * @return \Illuminate\Queue\Jobs\Job|null
 	 */
-	public function pop($queue = null)
+	public function pop($queue = NULL)
 	{
 		return Resque::pop($queue);
 	}
@@ -103,7 +125,7 @@ class ResqueQueue extends Queue {
 	/**
 	 * Returns the job's status.
 	 *
-	 * @param  string  $token
+	 * @param string $token
 	 * @return int
 	 */
 	public function jobStatus($token)
@@ -116,7 +138,7 @@ class ResqueQueue extends Queue {
 	/**
 	 * Returns true if the job is in waiting state.
 	 *
-	 * @param  string  $token
+	 * @param string $token
 	 * @return bool
 	 */
 	public function isWaiting($token)
@@ -129,7 +151,7 @@ class ResqueQueue extends Queue {
 	/**
 	 * Returns true if the job is in running state.
 	 *
-	 * @param  string  $token
+	 * @param string $token
 	 * @return bool
 	 */
 	public function isRunning($token)
@@ -142,7 +164,7 @@ class ResqueQueue extends Queue {
 	/**
 	 * Returns true if the job is in failed state.
 	 *
-	 * @param  string  $token
+	 * @param string $token
 	 * @return bool
 	 */
 	public function isFailed($token)
@@ -155,7 +177,7 @@ class ResqueQueue extends Queue {
 	/**
 	 * Returns true if the job is in complete state.
 	 *
-	 * @param  string  $token
+	 * @param string $token
 	 * @return bool
 	 */
 	public function isComplete($token)
@@ -168,12 +190,12 @@ class ResqueQueue extends Queue {
 	/**
 	 * Get the queue or return the default.
 	 *
-	 * @param  string|null  $queue
+	 * @param string|null $queue
 	 * @return string
 	 */
 	protected function getQueue($queue)
 	{
-		return $queue ?: $this->default;
+		return $queue ? : $this->default;
 	}
 
 } // End ResqueQueue

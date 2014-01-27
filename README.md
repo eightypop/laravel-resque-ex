@@ -4,7 +4,7 @@ This package allows you to connect to Resque when using `Queue`.
 
 ## Requirements
 
-- PHP 5.4+
+- PHP 5.5+
 - Illuminate\Config 4.1+
 - Illuminate\Queue 4.1+
 - Resque 1.2

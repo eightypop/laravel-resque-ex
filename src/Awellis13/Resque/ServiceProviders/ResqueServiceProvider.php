@@ -34,7 +34,7 @@ class ResqueServiceProvider extends QueueServiceProvider {
 	/**
 	 * Register the Resque queue connector.
 	 *
-	 * @param  \Illuminate\Queue\QueueManager  $manager
+	 * @param \Illuminate\Queue\QueueManager $manager
 	 * @return void
 	 */
 	protected function registerResqueConnector($manager)
@@ -44,17 +44,18 @@ class ResqueServiceProvider extends QueueServiceProvider {
 		{
 			if ($connection['driver'] !== 'resque')
 			{
-				$manager->addConnector($connection['driver'], function()
+				$manager->addConnector($connection['driver'], function ()
 				{
 					return new ResqueConnector();
 				});
 			}
 		}
 
-		$manager->addConnector('resque', function()
+		$manager->addConnector('resque', function ()
 		{
 			$config = Config::get('database.redis.default');
 			Config::set('queue.connections.resque', array_merge($config, ['driver' => 'resque']));
+
 			return new ResqueConnector;
 		});
 	}
@@ -66,7 +67,7 @@ class ResqueServiceProvider extends QueueServiceProvider {
 	 */
 	protected function registerCommand()
 	{
-		$this->app['command.resque.listen'] = $this->app->share(function($app)
+		$this->app['command.resque.listen'] = $this->app->share(function ($app)
 		{
 			return new ListenCommand;
 		});

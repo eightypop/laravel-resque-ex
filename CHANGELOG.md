@@ -1,3 +1,8 @@
+### 1.2.1
+
+- Changed: PHP 5.4.x+ required.
+- Added: Redis database number configuration option.
+
 ### 1.2.0
 
 - Feature: pushIfNotExists() added.

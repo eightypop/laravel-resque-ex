@@ -1,6 +1,7 @@
 ### 1.2.1
 
-- Reverted PHP requirement back to 5.4+.
+- Changed: PHP 5.4.x+ required.
+- Added: Redis database number configuration option.
 
 ### 1.2.0
 

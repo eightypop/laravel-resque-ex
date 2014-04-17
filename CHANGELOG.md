@@ -1,3 +1,8 @@
+### 1.2.2
+
+- Fixed: Handling no host set in config.
+- Added: Redis database number configuration option to `ListenCommand`.
+
 ### 1.2.1
 
 - Changed: PHP 5.4.x+ required.

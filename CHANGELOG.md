@@ -1,3 +1,7 @@
+### 1.2.1
+
+- Reverted PHP requirement back to 5.4+.
+
 ### 1.2.0
 
 - Feature: pushIfNotExists() added.

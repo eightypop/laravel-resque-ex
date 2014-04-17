@@ -4,7 +4,7 @@ This package allows you to connect to Resque when using `Queue`.
 
 ## Requirements
 
-- PHP 5.5+
+- PHP 5.4+
 - Illuminate\Config 4.1+
 - Illuminate\Queue 4.1+
 - Resque 1.2
@@ -15,7 +15,7 @@ This package allows you to connect to Resque when using `Queue`.
 First you need to add the following to your project's `composer.json`:
 
     "require": {
-    	"awellis13/laravel-resque": "1.1.x"
+    	"awellis13/laravel-resque": "1.2.x"
     }
 
 Now you need to run the following to install the package:

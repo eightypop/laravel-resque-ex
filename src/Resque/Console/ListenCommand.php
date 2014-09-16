@@ -1,4 +1,4 @@
-<?php namespace Awellis13\Resque\Console;
+<?php namespace Resque\Console;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;

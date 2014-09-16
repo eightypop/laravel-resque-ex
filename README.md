@@ -1,21 +1,20 @@
 ## Laravel Resque
 
-This package allows you to connect to Resque when using `Queue`. 
+This package allows you to connect to Resque when using `Queue`.
+
+This is a fork of awillis13's [laravel-resque](https://github.com/awellis13/laravel-resque) using kamisama's fork of chrisboulton's php-resque.
+
+
 
 ## Requirements
-
 - PHP 5.4+
-- Illuminate\Config 4.1+
-- Illuminate\Queue 4.1+
-- Resque 1.2
-- ResqueScheduler 1.1 (Optional)
 
 ## Installation
 
-First you need to add the following to your project's `composer.json`:
+Add the following to your project's `composer.json`:
 
     "require": {
-    	"awellis13/laravel-resque": "1.2.x"
+    	"whatknight/laravel-resque": "1.0.0"
     }
 
 Now you need to run the following to install the package:
@@ -24,7 +23,7 @@ Now you need to run the following to install the package:
 
 Next you need to add the following service provider to your `app/config/app.php`:
 
-    'Awellis13\Resque\ServiceProviders\ResqueServiceProvider'
+    'Resque\ServiceProviders\ResqueServiceProvider'
 
 Now you need to add the following to your `/app/config/queue.php` "connections" section:
 
@@ -59,8 +58,8 @@ If you choose to not use this driver as your default Queue driver you can call a
 
 ## Further Documentation
 
-- [PHP-Resque](https://github.com/chrisboulton/php-resque)
-- [PHP-Resque-Scheduler](https://github.com/chrisboulton/php-resque-scheduler)
+- [PHP-Resque](https://github.com/kamisama/php-resque-ex)
+- [PHP-Resque-Scheduler](https://github.com/kamisama/php-resque-ex-scheduler)
 
 ## License
 

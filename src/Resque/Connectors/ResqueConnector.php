@@ -1,9 +1,9 @@
-<?php namespace Awellis13\Resque\Connectors;
+<?php namespace Resque\Connectors;
 
 use Config;
 use Resque;
 use ResqueScheduler;
-use Awellis13\Resque\ResqueQueue;
+use Resque\ResqueQueue;
 use Illuminate\Queue\Connectors\ConnectorInterface;
 
 /**

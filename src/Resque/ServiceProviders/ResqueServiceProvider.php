@@ -1,8 +1,8 @@
-<?php namespace Awellis13\Resque\ServiceProviders;
+<?php namespace Resque\ServiceProviders;
 
 use Config;
-use Awellis13\Resque\Connectors\ResqueConnector;
-use Awellis13\Resque\Console\ListenCommand;
+use Resque\Connectors\ResqueConnector;
+use Resque\Console\ListenCommand;
 use Illuminate\Queue\QueueServiceProvider;
 
 /**

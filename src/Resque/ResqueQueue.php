@@ -1,4 +1,4 @@
-<?php namespace Awellis13\Resque;
+<?php namespace Resque;
 
 use Exception;
 use Resque;
